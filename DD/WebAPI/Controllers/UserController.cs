@@ -8,6 +8,7 @@ using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
+
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -16,15 +17,12 @@ namespace WebAPI.Controllers
     {
         //===================================================() Initialize ()===================================================\\
         private IUserBL _bl;
-        private IMemoryCache _memoryCache; //put in Ilogger
-        //private ILogger _logger;
-        //public string? Message { get; set; }
+        private IMemoryCache _memoryCache; 
 
         public UserController(IUserBL bl, IMemoryCache memoryCache)//, ILogger<UserController> logger)
         {
             _bl = bl;
             _memoryCache = memoryCache;
-            //_logger = logger;
         }
 
         //------------------------------------------------<> GetAllUsers <>---------------------------------------------------\\
@@ -75,7 +73,7 @@ namespace WebAPI.Controllers
                 //Message = $"User made!";
                 //_logger.LogInformation(Message);
                 Serilog.Log.Information("A User was made!");
-                return Created("User added!", UserToAdd);
+                return Created("User added!!!", UserToAdd);
             }
             catch (DuplicateRecordException ex)//Doesn't catch, I used the duplicate method in DBRepo to catch it instead
             {
