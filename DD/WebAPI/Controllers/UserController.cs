@@ -72,7 +72,7 @@ namespace WebAPI.Controllers
                 _bl.AddUser(UserToAdd);
                 //Message = $"User made!";
                 //_logger.LogInformation(Message);
-                Serilog.Log.Information("A User was made!");
+                Serilog.Log.Information("A User was made!!!");
                 return Created("User added!!!", UserToAdd);
             }
             catch (DuplicateRecordException ex)//Doesn't catch, I used the duplicate method in DBRepo to catch it instead
