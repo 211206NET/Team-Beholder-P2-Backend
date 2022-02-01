@@ -7,7 +7,12 @@ using Microsoft.AspNetCore.Authorization;
 using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
+/*
+for serilog
+dotnet add package Serilog
+dotnet add package Serilog.Sinks.Console
+dotnet add package Serilog.Sinks.File
+*/
 
 namespace WebAPI.Controllers
 {
@@ -67,36 +72,31 @@ namespace WebAPI.Controllers
         [HttpPost]
         public ActionResult<User> Post([FromBody] User UserToAdd)
         {
-            try
-            {
+            //try
+            //{
                 _bl.AddUser(UserToAdd);
-                //Message = $"User made!";
-                //_logger.LogInformation(Message);
-                Serilog.Log.Information("A User was made!!!");
+                //Serilog.Log.Information("A User was made!!!");
                 return Created("User added!!!", UserToAdd);
-            }
-            catch (DuplicateRecordException ex)//Doesn't catch, I used the duplicate method in DBRepo to catch it instead
-            {
+            //}
+            //catch (DuplicateRecordException ex)//Doesn't catch, I used the duplicate method in DBRepo to catch it instead
+            //{
                 return Conflict(ex.Message);
-            }
+            //}
         }
 
         //-------------------------------------------------<> ChangeUserInfo <>--------------------------------------------------\\
         // PUT api/<UserController>/5  add to something
         //[Authorize]
         [HttpPut("{id}")]
-        //public void Put(int id, [FromBody] int value)
         public ActionResult Put([FromBody] User changeUserInfo)
         {
             try
             {
                 _bl.ChangeUserInfo(changeUserInfo);
-                //Created 201
                 return Created("User updated", changeUserInfo);
             }
             catch (Exception ex)
             {
-                //Dupelicate is 409, but I can't test that yet, don't know how
                 return Conflict(ex.Message);
             }
 
