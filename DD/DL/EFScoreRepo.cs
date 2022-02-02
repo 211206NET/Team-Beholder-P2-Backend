@@ -21,7 +21,7 @@ public class EFScoreRepo : IScoreRepo
         return _context.Scores.Select(r => r).ToList();
     }
 
-    public async Task<Scoreboard?> GetScoreByIdAsync(string userId)
+    public async Task<Scoreboard?> GetScoreByIdAsync(string? userId)
     {
         return await _context.Scores
         //.Include("Reviews")
