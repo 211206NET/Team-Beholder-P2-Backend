@@ -1,5 +1,8 @@
 namespace Models;
 
+//UserId(PK/FK), GamesPlayed, Wins, Loses
+
+
 public class Scoreboard {
     public string UserFirst {get;set;}
     public string UserSecond {get;set;}
@@ -9,3 +12,4 @@ public class Scoreboard {
     public int GamesWon {get;set;}
     public int TotalKills {get;set;}
 }
+

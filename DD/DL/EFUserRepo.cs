@@ -1,3 +1,7 @@
+
+namespace DL;
+//traditionally DBrepo
+
 using Microsoft.EntityFrameworkCore;
 
 namespace DL;
@@ -37,3 +41,4 @@ public class EFUserRepo : IUserRepo
 
 
 }
+

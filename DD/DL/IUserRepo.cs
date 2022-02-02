@@ -1,4 +1,6 @@
 namespace DL;
+
+//traditionally IRepo
 public interface IUserRepo
 {
 
