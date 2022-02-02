@@ -13,7 +13,7 @@ public class EFUserRepo : IUserRepo
     }
 
 
-    public void AddCustomer(Object entity)
+    public void AddUser(Object entity)
     {
 
         _bl.Add(entity);
