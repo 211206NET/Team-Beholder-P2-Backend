@@ -8,5 +8,13 @@ public interface IUserRepo
 
     bool IsDuplicate(User IsUser);
 
+    List<User> GetAllUsers();
+
+    Task<User?> GetUserByIdAsync(int userId);
+
+    List<User> SearchUsers(string searchTerm);
+
+    void Delete(object entity);
+
 }
 

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models;
 using BL;
-using CustomExceptions;
+//using CustomExceptions;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Authorization;
-using Serilog;
+//using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 /*
@@ -74,19 +74,20 @@ namespace WebAPI.Controllers
         {
             //try
             //{
-                _bl.AddUser(UserToAdd);
+                _bl.AddCustomer(UserToAdd);
                 //Serilog.Log.Information("A User was made!!!");
                 return Created("User added!!!", UserToAdd);
             //}
             //catch (DuplicateRecordException ex)//Doesn't catch, I used the duplicate method in DBRepo to catch it instead
             //{
-                return Conflict(ex.Message);
+                //return Conflict(ex.Message);
             //}
         }
 
         //-------------------------------------------------<> ChangeUserInfo <>--------------------------------------------------\\
         // PUT api/<UserController>/5  add to something
         //[Authorize]
+        /*
         [HttpPut("{id}")]
         public ActionResult Put([FromBody] User changeUserInfo)
         {
@@ -101,7 +102,8 @@ namespace WebAPI.Controllers
             }
 
         }
-
+        */
+        
         //-------------------------------------------------<> Delete <>--------------------------------------------------\\
         // DELETE api/<RestaurantController>/5
         [HttpDelete("{id}")]

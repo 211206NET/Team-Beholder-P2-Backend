@@ -10,9 +10,9 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ScoreboardController : ControllerBase
     {
-        private IBL _bl;
+        private IUserBL _bl;
         private IMemoryCache _memoryCache;
-        public ScoreboardController(IBL bl, IMemoryCache memoryCache)
+        public ScoreboardController(IUserBL bl, IMemoryCache memoryCache)
         {
             _bl = bl;
             _memoryCache = memoryCache;
@@ -22,11 +22,11 @@ namespace WebAPI.Controllers
         [HttpGet]
         public async Task<List<User>> GetAsync()
         {
-            List<User> user;
-            if(!_memoryCache.TryGetValue("user", out allUsers))
+            List<User> allScore;
+            if(!_memoryCache.TryGetValue("score", out allScore))
             {
-                allUsers = await _bl.GetAllUsersAsync();
-                _memoryCache.Set("user", allUsers, new TimeSpan(0, 0, 30));
+                allScore = await _bl.GetAllScoresAsync();
+                _memoryCache.Set("score", allScore, new TimeSpan(0, 0, 30));
             }
             return _bl;
         }
@@ -35,8 +35,8 @@ namespace WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetAsync(int id)
         {
-            User foundUser = await _bl.GetUserByIdAsync(id);
-            if(foundUser.Id !=0)
+            User foundUser = await _bl.GetScoreByIdAsync(id);
+            if(foundUser.UserID !=0)
             {
                 return Ok(foundUser);
             }
@@ -48,20 +48,28 @@ namespace WebAPI.Controllers
 
         // POST api/<ScoreboardController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<User> Post([FromBody] Scoreboard scoreObj)
         {
+                _bl.AddScore(scoreObj);
+                //Serilog.Log.Information("A User was made!!!");
+                return Created("Score added!!!", scoreObj);
         }
 
+        /*
         // PUT api/<ScoreboardController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
+        */
 
+        /*
         // DELETE api/<ScoreboardController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _bl.Delete(await _bl.GetScoreByIdAsync(id));
         }
+        */
     }
 }
