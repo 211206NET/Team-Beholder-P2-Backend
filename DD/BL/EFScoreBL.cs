@@ -18,14 +18,14 @@ public class EFScoreBL : IScoreBL
  
 
 
-    public async Task<Scoreboard> GetAllScoresAsync()
+    public List<Scoreboard?> GetAllScores()
     {
-        return await _dl.GetAllScoresAsync();
+        return  _dl.GetAllScores();
     }
 
-    public async Task<Scoreboard?> GetScoreByIdAsync(int scoreId)
+    public async Task<Scoreboard?> GetScoreByIdAsync(string userId)
     {
-        return await _dl.GetScoreByIdAsync(scoreId);
+        return await _dl.GetScoreByIdAsync(userId);
     }
 
 

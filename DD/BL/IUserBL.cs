@@ -4,7 +4,7 @@ namespace BL;
 public interface IUserBL
 {
 
-    void AddCustomer(Object entity);
+    object AddCustomer(Object entity);
 
     bool IsDuplicate(User IsUser);
 

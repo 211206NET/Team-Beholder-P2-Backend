@@ -5,10 +5,10 @@ namespace DL;
 public interface IScoreRepo
 {
 
-Task<Scoreboard?> GetAllScoresAsync();
+List<Scoreboard?> GetAllScores();
 
-Task<Scoreboard?> GetScoreByIdAsync(int scoreId);
+Task<Scoreboard?> GetScoreByIdAsync(string userId);
 
-void AddScore(Object entity);
+object AddScore(Object entity);
 
 }

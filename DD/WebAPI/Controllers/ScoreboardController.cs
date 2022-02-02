@@ -2,6 +2,7 @@
 using Models;
 using BL;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.Authorization;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebAPI.Controllers
@@ -10,9 +11,9 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ScoreboardController : ControllerBase
     {
-        private IUserBL _bl;
+        private IScoreBL _bl;
         private IMemoryCache _memoryCache;
-        public ScoreboardController(IUserBL bl, IMemoryCache memoryCache)
+        public ScoreboardController(IScoreBL bl, IMemoryCache memoryCache)
         {
             _bl = bl;
             _memoryCache = memoryCache;
@@ -20,39 +21,40 @@ namespace WebAPI.Controllers
 
         // GET: api/<ScoreboardController>
         [HttpGet]
-        public async Task<List<User>> GetAsync()
+        public List<Scoreboard> Get()
         {
-            List<User> allScore;
+            List<Scoreboard> allScore;
             if(!_memoryCache.TryGetValue("score", out allScore))
             {
-                allScore = await _bl.GetAllScoresAsync();
+                allScore = _bl.GetAllScores();
                 _memoryCache.Set("score", allScore, new TimeSpan(0, 0, 30));
             }
-            return _bl;
+            return allScore;
         }
 
         // GET api/<ScoreboardController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetAsync(int id)
+        public async Task<ActionResult<Scoreboard>> GetAsync(string? username)
         {
-            User foundUser = await _bl.GetScoreByIdAsync(id);
-            if(foundUser.UserID !=0)
-            {
-                return Ok(foundUser);
-            }
-            else
-            {
-                return NoContent();
-            }
+            Scoreboard foundScore = await _bl.GetScoreByIdAsync(username);
+            return(foundScore);
+            // if(foundScore.ScoreID !=0)
+            // {
+            //     return Ok(foundScore);
+            // }
+            // else
+            // {
+            //     return NoContent();
+            // }
         }
 
         // POST api/<ScoreboardController>
         [HttpPost]
-        public ActionResult<User> Post([FromBody] Scoreboard scoreObj)
+        public ActionResult<Scoreboard> Post([FromBody] Scoreboard scoreObj)
         {
-                _bl.AddScore(scoreObj);
-                //Serilog.Log.Information("A User was made!!!");
-                return Created("Score added!!!", scoreObj);
+            _bl.AddScore(scoreObj);
+            //Serilog.Log.Information("A Score was made!!!");
+            return Created("Score added!!!", scoreObj);
         }
 
         /*

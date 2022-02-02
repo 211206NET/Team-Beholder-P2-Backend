@@ -5,9 +5,9 @@ namespace BL;
 public interface IScoreBL
 {
 
-Task<Scoreboard?> GetAllScoresAsync();
+List<Scoreboard?> GetAllScores();
 
-Task<Scoreboard?> GetScoreByIdAsync(int scoreId);
+Task<Scoreboard?> GetScoreByIdAsync(string userId);
 
 void AddScore(Object entity);
 

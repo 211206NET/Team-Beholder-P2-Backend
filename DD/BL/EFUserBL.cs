@@ -15,9 +15,9 @@ public class EFUserBL : IUserBL
     //------------------------------------------------------------------------------\\
     //<>                                Users                                     <>\\
     //------------------------------------------------------------------------------\\
-    public void AddCustomer(Object entity)
+    public object AddCustomer(Object entity)
     {
-        _dl.AddCustomer(entity);
+        return _dl.AddCustomer(entity);
     }
 
     public bool IsDuplicate(User IsUser)

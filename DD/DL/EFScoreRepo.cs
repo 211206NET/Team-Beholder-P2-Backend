@@ -1,50 +1,50 @@
+using Microsoft.EntityFrameworkCore;
 //GetAllScoresAsync   GetScoreByIdAsync AddScore
 
 namespace DL;
 //traditionally DBrepo
 
-using Microsoft.EntityFrameworkCore;
 
 
 public class EFScoreRepo : IScoreRepo
 {
+    private DDDBContext _context;
+    // private string _context;
 
-    private string _bl;
-
-    public EFScoreRepo(string bl)
+    public EFScoreRepo(DDDBContext  context)
     {
-        _bl = bl;
+        _context = context;
     }
 
-    public async Task<Scoreboard?> GetAllScoresAsync()
+    public List<Scoreboard?> GetAllScores()
     {
-        return await _bl.Scores.Select(r => r).ToList();
+        return _context.Scores.Select(r => r).ToList();
     }
 
-     public async Task<Scoreboard?> GetScoreByIdAsync(int scoreId)
+    public async Task<Scoreboard?> GetScoreByIdAsync(string userId)
     {
-        return await _bl.Scores
+        return await _context.Scores
         //.Include("Reviews")
-        .FirstOrDefaultAsync(r => r.ScoreID == scoreId);
+        .FirstOrDefaultAsync(r => r.Username == userId);
     }
 
     /*
     public object ChangeScoreInfo(object entity)
     {
-        _bl.Entry(entity).State = EntityState.Modified;
-        // _bl.Update(entity);
-        _bl.SaveChanges();
-        _bl.ChangeTracker.Clear();
+        _context.Entry(entity).State = EntityState.Modified;
+        // _context.Update(entity);
+        _context.SaveChanges();
+        _context.ChangeTracker.Clear();
         return entity;
     }
     */
 
-    public void AddScore(Object entity)
+    public object AddScore(Object entity)
     {
 
-        _bl.Add(entity);
-        _bl.SaveChanges();
-        _bl.ChangeTracker.Clear();
+        _context.Add(entity);
+        _context.SaveChanges();
+        _context.ChangeTracker.Clear();
         return entity;
 
     }
@@ -52,15 +52,15 @@ public class EFScoreRepo : IScoreRepo
     /*
     public bool IsDuplicate(Score IsScore)
     {
-        Score? dupe = _bl.Scores.FirstOrDefault(r => r.ScoreName == IsScore.ScoreName && r.Password == IsScore.Password && r.Email == IsScore.Email);
+        Score? dupe = _context.Scores.FirstOrDefault(r => r.ScoreName == IsScore.ScoreName && r.Password == IsScore.Password && r.Email == IsScore.Email);
         return dupe != null;
     }
 
     
     public void Delete(object entity){
-        _bl.Remove(entity);
-        _bl.SaveChanges();
-        _bl.ChangeTracker.Clear();
+        _context.Remove(entity);
+        _context.SaveChanges();
+        _context.ChangeTracker.Clear();
     }
     */
 
