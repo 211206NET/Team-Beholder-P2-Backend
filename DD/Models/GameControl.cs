@@ -1,8 +1,8 @@
-namespace models;
+namespace Models;
 
-public class Game {
+public class GameControl {
 
-    public Game(){}
+    public GameControl(){}
 
     public int Id { get; set; }
     public string? Players { get; set; } //1 - 4 

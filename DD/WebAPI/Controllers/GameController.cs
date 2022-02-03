@@ -26,9 +26,9 @@ namespace WebAPI.Controllers
         //------------------------------------------------<> GetAllGames <>---------------------------------------------------\\
         // GET: api/<GameController>
         [HttpGet]
-        public List<Game?> Get()
+        public List<GameControl?> Get()
         {
-            List<Game?> allGames;
+            List<GameControl?> allGames;
             if (!_memoryCache.TryGetValue("score", out allGames))
             {
                 allGames = _bl.GetAllGames();
@@ -38,14 +38,14 @@ namespace WebAPI.Controllers
         }
 
         //---------------------------------------------<> GetGameByIdAsync <>--------------------------------------------------\\
-        // GET api/<UserController>/5 Get value or something abse don id e.g 5    
+        // GET api/<GameController>/5 Get value or something abse don id e.g 5    
         [HttpGet("{id}")]
-        public async Task<ActionResult<Game>> GetAsync(int id)
+        public async Task<ActionResult<GameControl>> GetAsync(int idn)
         {
-            User foundUser = await _bl.GetGameByIdAsync(id);
-            if (foundUser.UserID != 0)
+            GameControl foundGame = await _bl.GetGameByIdAsync(idn);
+            if (foundGame.Id != 0)
             {
-                return Ok(foundUser);
+                return Ok(foundGame);
             }
             else
             {
@@ -54,14 +54,14 @@ namespace WebAPI.Controllers
         }
 
         //------------------------------------------------<> AddGame <>-------------------------------------------------------\\
-        // POST api/<UserController> Upload
+        // POST api/<GameController> Upload
         [HttpPost]
-        public ActionResult<Game> Post([FromBody] Game GameToAdd)
+        public ActionResult<GameControl> Post([FromBody] GameControl GameToAdd)
         {
             //try
             //{
-            _bl.AddCustomer(GameToAdd);
-            //Serilog.Log.Information("A User was made!!!");
+            _bl.AddGame(GameToAdd);
+            //Serilog.Log.Information("A GameControl was made!!!");
             return Created("Game added!!!", GameToAdd);
             //}
             //catch (DuplicateRecordException ex)//Doesn't catch, I used the duplicate method in DBRepo to catch it instead
@@ -73,12 +73,12 @@ namespace WebAPI.Controllers
         //-------------------------------------------------<> ChangeGameInfo <>--------------------------------------------------\\
         // PUT api/<GameController>/5
         [HttpPut("{id}")]
-        public ActionResult Put([FromBody] Game changeGameInfo)
+        public ActionResult Put([FromBody] GameControl changeGameInfo)
         {
             try
             {
-                _bl.ChangeUserInfo(changeGameInfo);
-                return Created("Game updated", changeGameInfo);
+                _bl.ChangeGameInfo(changeGameInfo);
+                return Created("GameControl updated", changeGameInfo);
             }
             catch (Exception ex)
             {

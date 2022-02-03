@@ -15,19 +15,19 @@ public class EFGameBL : IGameBL
     //------------------------------------------------------------------------------\\
     //<>                                Games                                     <>\\
     //------------------------------------------------------------------------------\\
-    public List<Game?> GetAllGames()
+    public List<GameControl?> GetAllGames()
     {
         return _dl.GetAllGames();
     }
 
-    public async Task<Game?> GetGameByIdAsync(string id)
+    public async Task<GameControl?> GetGameByIdAsync(int id)
     {
         return await _dl.GetGameByIdAsync(id);
     }
 
-    public void AddGame(Object entity)
+    public object AddGame(Object entity)
     {
-        _dl.AddGame(entity);
+        return _dl.AddGame(entity);
     }
 
     public object ChangeGameInfo(object entity)
