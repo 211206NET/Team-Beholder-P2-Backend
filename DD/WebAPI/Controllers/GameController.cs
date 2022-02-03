@@ -40,9 +40,9 @@ namespace WebAPI.Controllers
         //---------------------------------------------<> GetGameByIdAsync <>--------------------------------------------------\\
         // GET api/<GameController>/5 Get value or something abse don id e.g 5    
         [HttpGet("{id}")]
-        public async Task<ActionResult<GameControl>> GetAsync(int idn)
+        public async Task<ActionResult<GameControl>> GetAsync(int id)
         {
-            GameControl foundGame = await _bl.GetGameByIdAsync(idn);
+            GameControl foundGame = await _bl.GetGameByIdAsync(id);
             if (foundGame.Id != 0)
             {
                 return Ok(foundGame);
@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
         //------------------------------------------------<> AddGame <>-------------------------------------------------------\\
         // POST api/<GameController> Upload
         [HttpPost]
-        public ActionResult<GameControl> Post([FromBody] GameControl GameToAdd)
+        public ActionResult<GameControl> Post([FromForm] GameControl GameToAdd) //Was FromBody
         {
             //try
             //{
