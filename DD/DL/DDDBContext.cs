@@ -10,6 +10,7 @@ public class DDDBContext : DbContext
 
     public DbSet<Scoreboard>? Scores { get; set; }
     public DbSet<User>? Users { get; set; }
+    public DbSet<Game>? Games { get; set; }
 
 
     //Npgsql.EntityFrameworkCore.PostgreSQL?
