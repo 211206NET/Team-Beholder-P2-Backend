@@ -10,12 +10,13 @@ public class DDDBContext : DbContext
 
     public DbSet<Scoreboard>? Scores { get; set; }
     public DbSet<User>? Users { get; set; }
+    public DbSet<Game>? Games { get; set; }
 
 
     //Npgsql.EntityFrameworkCore.PostgreSQL?
 
 
-    //After every change to models
+    //After every change to models Last ran initMig2
     //dotnet ef migrations add initMig2 -c DDDBContext --startup-project ../WebAPI
     //dotnet ef database update --startup-project ../WebAPI
 

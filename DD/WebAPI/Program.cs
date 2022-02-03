@@ -28,6 +28,8 @@ builder.Services.AddScoped<IScoreRepo, EFScoreRepo>();
 builder.Services.AddScoped<IScoreBL, EFScoreBL>();
 builder.Services.AddScoped<IUserRepo, EFUserRepo>();
 builder.Services.AddScoped<IUserBL, EFUserBL>();
+builder.Services.AddScoped<IGameRepo, EFGameRepo>();
+builder.Services.AddScoped<IGameBL, EFGameBL>();
 //If anymore models are added, we need Dl & BL Repos, Controllers and lines added here
 
 //

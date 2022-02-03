@@ -1,6 +1,9 @@
 namespace models;
 
 public class Game {
+
+    public Game(){}
+
     public int Id { get; set; }
     public string? Players { get; set; } //1 - 4 
     public int GameTurn { get; set; } //1 - 4 for the standard 4 player game
@@ -22,8 +25,18 @@ public class Game {
     public double P4y { get; set; }
 
     //What kind of action, all actions will be kept in 4 different libraries
-    public int Action { get; set; } //1 = Melee, 2 = Spell, 3 = Self Skill, 4 = Self Spell
+    public int Action { get; set; } //0 = No Action Yet, 1 = Melee, 2 = Spell, 3 = Self Skill, 4 = Self Spell
     public int ActionID { get; set; } //the Id for the action in a list
-
     public string? TargetName { get; set; }//Who is being targeted this turn
+
+    //HP UI
+    public int P1MaxHP { get; set; } 
+    public int P2MaxHP { get; set; } 
+    public int P3MaxHP { get; set; } 
+    public int P4MaxHP { get; set; } 
+    public int P1HP { get; set; } 
+    public int P2HP { get; set; } 
+    public int P3HP { get; set; } 
+    public int P4HP { get; set; } 
+
 }
