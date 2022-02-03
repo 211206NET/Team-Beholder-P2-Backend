@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-//GetAllGames, GetGameByIdAsync, AddGame, ChangeGameInfo, Delete
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DL;
 //traditionally DBrepo
-
+//GetAllGames, GetGameByIdAsync, AddGame, ChangeGameInfo, Delete
 
 public class EFGameRepo : IGameRepo
 {
@@ -21,21 +15,23 @@ public class EFGameRepo : IGameRepo
         _context = context;
     }
 
-    public List<Game> GetAllGames()
+    public List<GameControl> GetAllGames()
     {
         return _context.Games.Select(r => r).ToList();
     }
 
-    public async Task<Game?> GetGameByIdAsync(int gameId)
+    public async Task<GameControl> GetGameByIdAsync(int id)
     {
-        return await _context.Games
-        //.Include("Reviews")
-        .FirstOrDefaultAsync(r => r.GameID == gameId);
+        // return await _context.Games
+        // //.Include("Reviews")
+        // .FirstOrDefaultAsync(r => r.Id == idn);
+        return await _context.Games.FirstOrDefaultAsync(r => r.Id == id);
+
+        
     }
 
     public object AddGame(Object entity)
     {
-
         _context.Add(entity);
         _context.SaveChanges();
         _context.ChangeTracker.Clear();
