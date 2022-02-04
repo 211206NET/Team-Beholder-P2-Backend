@@ -85,8 +85,8 @@ namespace DL.Migrations
                     b.Property<double>("P4y")
                         .HasColumnType("double precision");
 
-                    b.Property<string>("Players")
-                        .HasColumnType("text");
+                    b.Property<int>("Players")
+                        .HasColumnType("integer");
 
                     b.Property<string>("TargetName")
                         .HasColumnType("text");

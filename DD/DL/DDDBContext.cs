@@ -16,7 +16,7 @@ public class DDDBContext : DbContext
     //Npgsql.EntityFrameworkCore.PostgreSQL?
 
 
-    //After every change to models Last ran initMig2
+    //After every change to models Last ran initMig3
     //dotnet ef migrations add initMig2 -c DDDBContext --startup-project ../WebAPI
     //dotnet ef database update --startup-project ../WebAPI
 
