@@ -40,9 +40,9 @@ namespace WebAPI.Controllers
         //---------------------------------------------<> GetGameByIdAsync <>--------------------------------------------------\\
         // GET api/<GameController>/5 Get value or something abse don id e.g 5    
         [HttpGet("{id}")]
-        public async Task<ActionResult<GameControl>> GetAsync(int idn)
+        public async Task<ActionResult<GameControl>> GetAsync(int id)
         {
-            GameControl foundGame = await _bl.GetGameByIdAsync(idn);
+            GameControl foundGame = await _bl.GetGameByIdAsync(id);
             if (foundGame.Id != 0)
             {
                 return Ok(foundGame);
@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
         //------------------------------------------------<> AddGame <>-------------------------------------------------------\\
         // POST api/<GameController> Upload
         [HttpPost]
-        public ActionResult<GameControl> Post([FromBody] GameControl GameToAdd)
+        public ActionResult<GameControl> Post([FromForm] GameControl GameToAdd) //Was From Body
         {
             //try
             //{
@@ -73,12 +73,12 @@ namespace WebAPI.Controllers
         //-------------------------------------------------<> ChangeGameInfo <>--------------------------------------------------\\
         // PUT api/<GameController>/5
         [HttpPut("{id}")]
-        public ActionResult Put([FromBody] GameControl changeGameInfo)
+        public ActionResult Put([FromForm] GameControl entity) //FromBody, FromForm, FromHeader, FromQuery, FromRoute, FromServices
         {
             try
             {
-                _bl.ChangeGameInfo(changeGameInfo);
-                return Created("GameControl updated", changeGameInfo);
+                _bl.ChangeGameInfo(entity);
+                return Created("GameControl updated", entity);
             }
             catch (Exception ex)
             {
