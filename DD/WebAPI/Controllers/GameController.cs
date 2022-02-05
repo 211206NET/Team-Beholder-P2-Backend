@@ -56,7 +56,11 @@ namespace WebAPI.Controllers
         //------------------------------------------------<> AddGame <>-------------------------------------------------------\\
         // POST api/<GameController> Upload
         [HttpPost]
+<<<<<<< HEAD
         public ActionResult<GameControl> Post([FromForm] GameControl GameToAdd) //Was From Body
+=======
+        public ActionResult<GameControl> Post([FromForm] GameControl GameToAdd) //Was FromBody
+>>>>>>> main
         {
             //try
             //{
