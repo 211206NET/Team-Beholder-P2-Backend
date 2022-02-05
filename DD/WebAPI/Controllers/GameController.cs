@@ -56,7 +56,11 @@ namespace WebAPI.Controllers
         //------------------------------------------------<> AddGame <>-------------------------------------------------------\\
         // POST api/<GameController> Upload
         [HttpPost]
+<<<<<<< HEAD
+        public ActionResult<GameControl> Post([FromForm] GameControl GameToAdd) //Was From Body
+=======
         public ActionResult<GameControl> Post([FromForm] GameControl GameToAdd) //Was FromBody
+>>>>>>> main
         {
             //try
             //{
@@ -73,12 +77,12 @@ namespace WebAPI.Controllers
         //-------------------------------------------------<> ChangeGameInfo <>--------------------------------------------------\\
         // PUT api/<GameController>/5
         [HttpPut("{id}")]
-        public ActionResult Put([FromBody] GameControl changeGameInfo)
+        public ActionResult Put([FromForm] GameControl entity) //FromBody, FromForm, FromHeader, FromQuery, FromRoute, FromServices
         {
             try
             {
-                _bl.ChangeGameInfo(changeGameInfo);
-                return Created("GameControl updated", changeGameInfo);
+                _bl.ChangeGameInfo(entity);
+                return Created("GameControl updated", entity);
             }
             catch (Exception ex)
             {

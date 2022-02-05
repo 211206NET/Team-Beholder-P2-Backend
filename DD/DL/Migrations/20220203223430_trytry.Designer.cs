@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DL.Migrations
 {
     [DbContext(typeof(DDDBContext))]
-    [Migration("20220203171831_initMig2")]
-    partial class initMig2
+    [Migration("20220203223430_trytry")]
+    partial class trytry
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -87,8 +87,8 @@ namespace DL.Migrations
                     b.Property<double>("P4y")
                         .HasColumnType("double precision");
 
-                    b.Property<string>("Players")
-                        .HasColumnType("text");
+                    b.Property<int>("Players")
+                        .HasColumnType("integer");
 
                     b.Property<string>("TargetName")
                         .HasColumnType("text");

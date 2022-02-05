@@ -5,7 +5,7 @@ public class GameControl {
     public GameControl(){}
 
     public int Id { get; set; }
-    public string? Players { get; set; } //1 - 4 
+    public int Players { get; set; } //1 - 4 
     public int GameTurn { get; set; } //1 - 4 for the standard 4 player game
     public string? p1Name { get; set; }
     public string? p2Name { get; set; }
