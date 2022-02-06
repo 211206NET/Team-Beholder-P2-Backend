@@ -5,7 +5,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DL.Migrations
 {
-    public partial class trytry : Migration
+    public partial class UpdatedGameController : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,14 +21,14 @@ namespace DL.Migrations
                     p2Name = table.Column<string>(type: "text", nullable: true),
                     p3Name = table.Column<string>(type: "text", nullable: true),
                     p4Name = table.Column<string>(type: "text", nullable: true),
-                    P1x = table.Column<double>(type: "double precision", nullable: false),
-                    P1y = table.Column<double>(type: "double precision", nullable: false),
-                    P2x = table.Column<double>(type: "double precision", nullable: false),
-                    P2y = table.Column<double>(type: "double precision", nullable: false),
-                    P3x = table.Column<double>(type: "double precision", nullable: false),
-                    P3y = table.Column<double>(type: "double precision", nullable: false),
-                    P4x = table.Column<double>(type: "double precision", nullable: false),
-                    P4y = table.Column<double>(type: "double precision", nullable: false),
+                    P1mv = table.Column<int>(type: "integer", nullable: false),
+                    P2mv = table.Column<int>(type: "integer", nullable: false),
+                    P3mv = table.Column<int>(type: "integer", nullable: false),
+                    P4mv = table.Column<int>(type: "integer", nullable: false),
+                    P1fc = table.Column<int>(type: "integer", nullable: false),
+                    P2fc = table.Column<int>(type: "integer", nullable: false),
+                    P3fc = table.Column<int>(type: "integer", nullable: false),
+                    P4fc = table.Column<int>(type: "integer", nullable: false),
                     Action = table.Column<int>(type: "integer", nullable: false),
                     ActionID = table.Column<int>(type: "integer", nullable: false),
                     TargetName = table.Column<string>(type: "text", nullable: true),

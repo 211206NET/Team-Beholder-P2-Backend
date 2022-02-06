@@ -30,12 +30,12 @@ public class EFGameBL : IGameBL
         return _dl.AddGame(entity);
     }
 
-    public object ChangeGameInfo(object entity)
+    public object ChangeGameInfo(Object entity)
     {
         return _dl.ChangeGameInfo(entity);
     }
 
-    public void Delete(object entity)
+    public void Delete(Object? entity)
     {
         _dl.Delete(entity);
     }

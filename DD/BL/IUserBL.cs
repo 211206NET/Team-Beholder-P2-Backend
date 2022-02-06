@@ -13,12 +13,12 @@ public interface IUserBL
 
     bool IsDuplicate(User IsUser);
 
-    List<User> GetAllUsers();
+    List<User?> GetAllUsers();
 
     Task<User?> GetUserByIdAsync(int userId);
 
-    List<User> SearchUsers(string searchTerm);
+    List<User?> SearchUsers(string searchTerm);
 
-    void Delete(object entity);
+    void Delete(Object? entity);
 
 }

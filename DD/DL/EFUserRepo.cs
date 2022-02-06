@@ -66,7 +66,7 @@ public class EFUserRepo : IUserRepo
     }
 
     
-    public void Delete(object entity){
+    public void Delete(Object entity){
         _context.Remove(entity);
         _context.SaveChanges();
         _context.ChangeTracker.Clear();

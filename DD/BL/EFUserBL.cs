@@ -25,7 +25,7 @@ public class EFUserBL : IUserBL
         return _dl.IsDuplicate(IsUser);
     }
 
-    public List<User> GetAllUsers()
+    public List<User?> GetAllUsers()
     {
         return _dl.GetAllUsers();
     }
@@ -35,12 +35,12 @@ public class EFUserBL : IUserBL
         return _dl.GetUserByIdAsync(userId);
     }
 
-    public List<User> SearchUsers(string searchTerm)
+    public List<User?> SearchUsers(string searchTerm)
     {
         return _dl.SearchUsers(searchTerm);
     }
 
-    public void Delete(object entity)
+    public void Delete(Object? entity)
     {
         _dl.Delete(entity);
     }

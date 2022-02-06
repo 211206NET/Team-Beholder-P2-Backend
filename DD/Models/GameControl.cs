@@ -2,7 +2,7 @@ namespace Models;
 
 public class GameControl {
 
-    public GameControl(){}
+    //public GameControl(){}
 
     public int Id { get; set; }
     public int Players { get; set; } //1 - 4 
@@ -15,14 +15,14 @@ public class GameControl {
     //Old position for each player will be stored locally for each player,
     //this will send new position data to each player via the database
     //Doubles are floats in unity
-    public double P1x { get; set; }
-    public double P1y { get; set; }
-    public double P2x { get; set; }
-    public double P2y { get; set; }
-    public double P3x { get; set; }
-    public double P3y { get; set; }
-    public double P4x { get; set; }
-    public double P4y { get; set; }
+    public int P1mv { get; set; }
+    public int P2mv { get; set; }
+    public int P3mv { get; set; }
+    public int P4mv { get; set; }
+    public int P1fc { get; set; }
+    public int P2fc { get; set; }
+    public int P3fc { get; set; }
+    public int P4fc { get; set; }
 
     //What kind of action, all actions will be kept in 4 different libraries
     public int Action { get; set; } //0 = No Action Yet, 1 = Melee, 2 = Spell, 3 = Self Skill, 4 = Self Spell

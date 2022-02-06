@@ -34,18 +34,31 @@ namespace WebAPI.Controllers
 
         // GET api/<ScoreboardController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Scoreboard?>> GetAsync(string? username)
+        public async Task<ActionResult<Scoreboard?>> GetAsync(string username)
         {
-            Scoreboard foundScore = await _bl.GetScoreByIdAsync(username);
-            return(foundScore);
-            // if(foundScore.ScoreID !=0)
-            // {
-            //     return Ok(foundScore);
-            // }
-            // else
-            // {
-            //     return NoContent();
-            // }
+            if(username != null){
+            Scoreboard? foundScore = await _bl.GetScoreByIdAsync(username);
+            if(foundScore != null)
+            {
+                //return(foundScore);
+                if(foundScore.Id !=0)
+                {
+                    return Ok(foundScore);
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+            else
+            {
+                return NoContent();
+            }
+            }
+            else
+            {
+                return NoContent();
+            }
         }
 
         // POST api/<ScoreboardController>
