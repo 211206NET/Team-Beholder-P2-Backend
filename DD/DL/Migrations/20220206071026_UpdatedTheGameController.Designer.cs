@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DL.Migrations
 {
     [DbContext(typeof(DDDBContext))]
-    [Migration("20220203223430_trytry")]
-    partial class trytry
+    [Migration("20220206071026_UpdatedTheGameController")]
+    partial class UpdatedTheGameController
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,11 +45,11 @@ namespace DL.Migrations
                     b.Property<int>("P1MaxHP")
                         .HasColumnType("integer");
 
-                    b.Property<double>("P1x")
-                        .HasColumnType("double precision");
+                    b.Property<int>("P1fc")
+                        .HasColumnType("integer");
 
-                    b.Property<double>("P1y")
-                        .HasColumnType("double precision");
+                    b.Property<int>("P1mv")
+                        .HasColumnType("integer");
 
                     b.Property<int>("P2HP")
                         .HasColumnType("integer");
@@ -57,11 +57,11 @@ namespace DL.Migrations
                     b.Property<int>("P2MaxHP")
                         .HasColumnType("integer");
 
-                    b.Property<double>("P2x")
-                        .HasColumnType("double precision");
+                    b.Property<int>("P2fc")
+                        .HasColumnType("integer");
 
-                    b.Property<double>("P2y")
-                        .HasColumnType("double precision");
+                    b.Property<int>("P2mv")
+                        .HasColumnType("integer");
 
                     b.Property<int>("P3HP")
                         .HasColumnType("integer");
@@ -69,11 +69,11 @@ namespace DL.Migrations
                     b.Property<int>("P3MaxHP")
                         .HasColumnType("integer");
 
-                    b.Property<double>("P3x")
-                        .HasColumnType("double precision");
+                    b.Property<int>("P3fc")
+                        .HasColumnType("integer");
 
-                    b.Property<double>("P3y")
-                        .HasColumnType("double precision");
+                    b.Property<int>("P3mv")
+                        .HasColumnType("integer");
 
                     b.Property<int>("P4HP")
                         .HasColumnType("integer");
@@ -81,11 +81,11 @@ namespace DL.Migrations
                     b.Property<int>("P4MaxHP")
                         .HasColumnType("integer");
 
-                    b.Property<double>("P4x")
-                        .HasColumnType("double precision");
+                    b.Property<int>("P4fc")
+                        .HasColumnType("integer");
 
-                    b.Property<double>("P4y")
-                        .HasColumnType("double precision");
+                    b.Property<int>("P4mv")
+                        .HasColumnType("integer");
 
                     b.Property<int>("Players")
                         .HasColumnType("integer");

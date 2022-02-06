@@ -7,7 +7,7 @@ public interface IScoreRepo
 
 List<Scoreboard?> GetAllScores();
 
-Task<Scoreboard?> GetScoreByIdAsync(string userId);
+Task<Scoreboard?> GetScoreByIdAsync(string? userId);
 
 object AddScore(Object entity);
 

@@ -7,7 +7,7 @@ public interface IScoreBL
 
 List<Scoreboard?> GetAllScores();
 
-Task<Scoreboard?> GetScoreByIdAsync(string userId);
+Task<Scoreboard?> GetScoreByIdAsync(string? userId);
 
 void AddScore(Object entity);
 

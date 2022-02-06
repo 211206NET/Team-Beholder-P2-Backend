@@ -42,10 +42,17 @@ namespace WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<GameControl>> GetAsync(int id)
         {
-            GameControl foundGame = await _bl.GetGameByIdAsync(id);
-            if (foundGame.Id != 0)
+            GameControl? foundGame = await _bl.GetGameByIdAsync(id);
+            if(foundGame != null)
             {
-                return Ok(foundGame);
+                if (foundGame.Id != 0)
+                {
+                    return Ok(foundGame);
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
             else
             {
@@ -56,7 +63,7 @@ namespace WebAPI.Controllers
         //------------------------------------------------<> AddGame <>-------------------------------------------------------\\
         // POST api/<GameController> Upload
         [HttpPost]
-        public ActionResult<GameControl> Post([FromForm] GameControl GameToAdd) //Was FromBody
+        public ActionResult<GameControl?> Post([FromForm] GameControl GameToAdd) //Was FromBody
         {
             //try
             //{
@@ -72,7 +79,8 @@ namespace WebAPI.Controllers
 
         //-------------------------------------------------<> ChangeGameInfo <>--------------------------------------------------\\
         // PUT api/<GameController>/5
-        [HttpPut("{id}")]
+        //[HttpPut("{id}")]  
+        [HttpPut]                                           //FromBody = BadRequest, FromForm = 409 Conflict error
         public ActionResult Put([FromForm] GameControl entity) //FromBody, FromForm, FromHeader, FromQuery, FromRoute, FromServices
         {
             try
@@ -90,9 +98,9 @@ namespace WebAPI.Controllers
         //-------------------------------------------------<> Delete <>--------------------------------------------------\\
         // DELETE api/<RestaurantController>/5
         [HttpDelete("{id}")]
-        public async Task Delete(int id)
+        public async Task Delete(int entity)
         {
-            _bl.Delete(await _bl.GetGameByIdAsync(id));
+            _bl.Delete(await _bl.GetGameByIdAsync(entity));
         }
     }
 }

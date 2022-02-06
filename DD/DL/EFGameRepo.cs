@@ -15,12 +15,12 @@ public class EFGameRepo : IGameRepo
         _context = context;
     }
 
-    public List<GameControl> GetAllGames()
+    public List<GameControl?> GetAllGames()
     {
         return _context.Games.Select(r => r).ToList();
     }
 
-    public async Task<GameControl> GetGameByIdAsync(int id)
+    public async Task<GameControl?> GetGameByIdAsync(int id)
     {
         // return await _context.Games
         // //.Include("Reviews")
@@ -39,7 +39,7 @@ public class EFGameRepo : IGameRepo
 
     }
 
-    public object ChangeGameInfo(object entity)
+    public object ChangeGameInfo(Object entity)
     {
         _context.Entry(entity).State = EntityState.Modified;
         // _context.Update(entity);
@@ -48,7 +48,7 @@ public class EFGameRepo : IGameRepo
         return entity;
     }
     
-    public void Delete(object entity)
+    public void Delete(Object entity)
     {
         _context.Remove(entity);
         _context.SaveChanges();
