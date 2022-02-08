@@ -17,7 +17,7 @@ public class DDDBContext : DbContext
 
 
     //After every change to models Last ran initMig3
-    //dotnet ef migrations add UpdatedTheGameController -c DDDBContext --startup-project ../WebAPI
+    //dotnet ef migrations add UpdatedFinalDamageAgian -c DDDBContext --startup-project ../WebAPI
     //dotnet ef database update --startup-project ../WebAPI
 
 
