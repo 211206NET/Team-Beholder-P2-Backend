@@ -39,4 +39,6 @@ public class GameControl {
     public int P3HP { get; set; } 
     public int P4HP { get; set; } 
 
+    public int FinalDamage { get; set; } 
+
 }
