@@ -5,7 +5,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DL.Migrations
 {
-    public partial class UpdatedGameController : Migration
+    public partial class UpdatedFinalDamageAgianx3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,7 +39,8 @@ namespace DL.Migrations
                     P1HP = table.Column<int>(type: "integer", nullable: false),
                     P2HP = table.Column<int>(type: "integer", nullable: false),
                     P3HP = table.Column<int>(type: "integer", nullable: false),
-                    P4HP = table.Column<int>(type: "integer", nullable: false)
+                    P4HP = table.Column<int>(type: "integer", nullable: false),
+                    FinalDamage = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
