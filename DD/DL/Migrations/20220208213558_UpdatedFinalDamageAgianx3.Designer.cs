@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DL.Migrations
 {
     [DbContext(typeof(DDDBContext))]
-    [Migration("20220206071026_UpdatedTheGameController")]
-    partial class UpdatedTheGameController
+    [Migration("20220208213558_UpdatedFinalDamageAgianx3")]
+    partial class UpdatedFinalDamageAgianx3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,9 @@ namespace DL.Migrations
                         .HasColumnType("integer");
 
                     b.Property<int>("ActionID")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("FinalDamage")
                         .HasColumnType("integer");
 
                     b.Property<int>("GameTurn")
