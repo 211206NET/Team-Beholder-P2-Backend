@@ -55,10 +55,12 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
+app.UseCors();
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
 
-app.UseCors();
+
