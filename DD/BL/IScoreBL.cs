@@ -6,9 +6,8 @@ public interface IScoreBL
 {
 
 List<Scoreboard?> GetAllScores();
-
-Task<Scoreboard?> GetScoreByIdAsync(string? userId);
-
+Task<Scoreboard?> GetScoreByIdAsync(int id);
+object ChangeScoreInfo(Object entity);
 void AddScore(Object entity);
 
 }

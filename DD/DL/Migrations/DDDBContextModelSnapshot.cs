@@ -128,15 +128,6 @@ namespace DL.Migrations
                     b.Property<int>("TotalKills")
                         .HasColumnType("integer");
 
-                    b.Property<string>("UserFirst")
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserSecond")
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserThird")
-                        .HasColumnType("text");
-
                     b.Property<string>("Username")
                         .HasColumnType("text");
 

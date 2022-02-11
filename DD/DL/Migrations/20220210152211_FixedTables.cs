@@ -5,7 +5,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DL.Migrations
 {
-    public partial class UpdatedFinalDamageAgianx3 : Migration
+    public partial class FixedTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,9 +53,6 @@ namespace DL.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserFirst = table.Column<string>(type: "text", nullable: true),
-                    UserSecond = table.Column<string>(type: "text", nullable: true),
-                    UserThird = table.Column<string>(type: "text", nullable: true),
                     Username = table.Column<string>(type: "text", nullable: true),
                     GamesPlayed = table.Column<int>(type: "integer", nullable: false),
                     GamesWon = table.Column<int>(type: "integer", nullable: false),

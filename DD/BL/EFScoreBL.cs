@@ -23,13 +23,17 @@ public class EFScoreBL : IScoreBL
         return  _dl.GetAllScores();
     }
 
-    public async Task<Scoreboard?> GetScoreByIdAsync(string userId)
+    public async Task<Scoreboard?> GetScoreByIdAsync(int id)
     {
-        return await _dl.GetScoreByIdAsync(userId);
+        return await _dl.GetScoreByIdAsync(id);
     }
 
+    public object ChangeScoreInfo(Object entity)
+    {
+        return _dl.ChangeScoreInfo(entity);
+    }
 
-   public void AddScore(Object entity)
+    public void AddScore(Object entity)
     {
         _dl.AddScore(entity);
     }
