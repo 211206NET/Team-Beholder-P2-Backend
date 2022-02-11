@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DL.Migrations
 {
     [DbContext(typeof(DDDBContext))]
-    [Migration("20220208213558_UpdatedFinalDamageAgianx3")]
-    partial class UpdatedFinalDamageAgianx3
+    [Migration("20220210152211_FixedTables")]
+    partial class FixedTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -129,15 +129,6 @@ namespace DL.Migrations
 
                     b.Property<int>("TotalKills")
                         .HasColumnType("integer");
-
-                    b.Property<string>("UserFirst")
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserSecond")
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserThird")
-                        .HasColumnType("text");
 
                     b.Property<string>("Username")
                         .HasColumnType("text");

@@ -21,15 +21,15 @@ public class EFScoreRepo : IScoreRepo
         return _context.Scores.Select(r => r).ToList();
     }
 
-    public async Task<Scoreboard?> GetScoreByIdAsync(string? userId)
+    public async Task<Scoreboard?> GetScoreByIdAsync(int id)
     {
         return await _context.Scores
         //.Include("Reviews")
-        .FirstOrDefaultAsync(r => r.Username == userId);
+        .FirstOrDefaultAsync(r => r.Id == id);
     }
 
-    /*
-    public object ChangeScoreInfo(object entity)
+    
+    public object ChangeScoreInfo(Object entity)
     {
         _context.Entry(entity).State = EntityState.Modified;
         // _context.Update(entity);
@@ -37,16 +37,14 @@ public class EFScoreRepo : IScoreRepo
         _context.ChangeTracker.Clear();
         return entity;
     }
-    */
+    
 
     public object AddScore(Object entity)
     {
-
         _context.Add(entity);
         _context.SaveChanges();
         _context.ChangeTracker.Clear();
         return entity;
-
     }
 
     /*

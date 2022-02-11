@@ -34,10 +34,10 @@ namespace WebAPI.Controllers
 
         // GET api/<ScoreboardController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Scoreboard?>> GetAsync(string username)
+        public async Task<ActionResult<Scoreboard?>> GetAsync(int id)
         {
-            if(username != null){
-            Scoreboard? foundScore = await _bl.GetScoreByIdAsync(username);
+            if(id != null){
+            Scoreboard? foundScore = await _bl.GetScoreByIdAsync(id);
             if(foundScore != null)
             {
                 //return(foundScore);
@@ -70,13 +70,22 @@ namespace WebAPI.Controllers
             return Created("Score added!!!", scoreObj);
         }
 
-        /*
+        
         // PUT api/<ScoreboardController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]                                           //FromBody = BadRequest, FromForm = 409 Conflict error
+        public ActionResult Put([FromForm] Scoreboard entity) //FromBody, FromForm, FromHeader, FromQuery, FromRoute, FromServices
         {
+            try
+            {
+                _bl.ChangeScoreInfo(entity);
+                return Created("Scoreboard updated", entity);
+            }
+            catch (Exception ex)
+            {
+                return Conflict(ex.Message);
+            }
         }
-        */
+        
 
         /*
         // DELETE api/<ScoreboardController>/5
