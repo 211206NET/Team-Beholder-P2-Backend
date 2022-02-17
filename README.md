@@ -75,6 +75,12 @@ to the VIP area of the website.
 - Truly Functional stats
 - Buff/Debuff Abilities
 
+## Contributors
+Matthew Wiese
+Connor Kobel
+Brayan Cordero
+Kevin Chen
+
 ## Get Started
 To run the application use the following steps:
 
