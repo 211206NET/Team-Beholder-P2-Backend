@@ -1,6 +1,6 @@
 # Dungeons & Danger 1.0
 
-## Overview
+## Project Description
 Fight to the death in a battle royale. Connect to online games and participate in turn based combat. 
 Your score is tracked on a leaderboard based on your cumulative progress. Your score enables special access
 to the VIP area of the website.
@@ -76,12 +76,12 @@ to the VIP area of the website.
 - Buff/Debuff Abilities
 
 ## Contributors
-Matthew Wiese
-Connor Kobel
-Brayan Cordero
-Kevin Chen
+- Matthew Wiese
+- Connor Kobel
+- Brayan Cordero
+- Kevin Chen
 
-## Get Started
+## Getting Started
 To run the application use the following steps:
 
 - Install the Angular CLI to run the application with npm install -g @angular/cli
