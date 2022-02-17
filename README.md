@@ -1,11 +1,9 @@
-﻿#Dungeons & Danger 1.0
-
+#Dungeons & Danger 1.0
 
 ##Overview
 Fight to the death in a battle royale. Connect to online games and participate in turn based combat. 
 Your score is tracked on a leaderboard based on your cumulative progress. Your score enables special access
 to the VIP area of the website.
-
 
 ##Tables
 1. User
@@ -58,28 +56,28 @@ to the VIP area of the website.
 4. Multiplayer function
         
 ##Tech Stack
-* C#
-* AWS
-* Angular
-* XUnit, Moq, Sonar cloud for testing and code analysis
-* Node JS?
-* Socket IO?
+- C#
+- AWS
+- Angular
+- XUnit, Moq, Sonar cloud for testing and code analysis
+- Node JS?
+- Socket IO?
 
 ##Backburner
-* Dungeon Map Generator
-* Chat function
-* Leaderboard
-* Create and Save Characters
-* Special Equipment?
-* PVE, Coop
-* Form Parties
-* Form Guilds
-* Truly Functional stats
-* Buff/Debuff Abilities
+- Dungeon Map Generator
+- Chat function
+- Leaderboard
+- Create and Save Characters
+- Special Equipment?
+- PVE, Coop
+- Form Parties
+- Form Guilds
+- Truly Functional stats
+- Buff/Debuff Abilities
 
 ##Get Started
 To run the application use the following steps:
 
-* Install the Angular CLI to run the application with npm install -g @angular/cli
-* Clone the repo git clone https://github.com/211206NET/Team-Beholder-P2-Backend.git
-* Navigate to project folder and enter ng serve
+- Install the Angular CLI to run the application with npm install -g @angular/cli
+- Clone the repo git clone https://github.com/211206NET/Team-Beholder-P2-Backend.git
+- Navigate to project folder and enter ng serve
