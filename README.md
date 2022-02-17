@@ -36,24 +36,24 @@ to the VIP area of the website.
    11. Speed
 
 ## User Stories
-1. A user should be able to sign up for an account.
-2. A user should be able to see their score board.
-3. A user should be able kill his enemies.
-4. An admin should be able view all registered users.
-5. A user should be able to visit the special VIP tavern page if their score is high enough.
+- A user should be able to sign up for an account.
+- A user should be able to see their score board.
+- A user should be able kill his enemies.
+- An admin should be able view all registered users.
+- A user should be able to visit the special VIP tavern page if their score is high enough.
 
 ## MVP
-1. Log in function 
-2. Create a server connection
-3. Player’s results should persist to the database.
-4. Demo with rock, paper and scissor test
-5. Battle system
+- Log in function 
+- Create a server connection
+- Player’s results should persist to the database.
+- Demo with rock, paper and scissor test
+- Battle system
 
 ## Long Term Goal
-1. Complex battle system
-2. Score board
-3. Pick your own character
-4. Multiplayer function
+- Complex battle system
+- Score board
+- Pick your own character
+- Multiplayer function
         
 ## Tech Stack
 - C#
